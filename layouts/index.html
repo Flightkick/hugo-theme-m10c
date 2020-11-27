@@ -1,0 +1,13 @@
+{{ partial "header" . }}
+<main class="app-container">
+{{ range where .Data.Pages "Type" "homepage" }}
+<article>
+  <h1 class="pagetitle">{{ .Title }}</h1>
+  <div class="content">
+    {{ .Content }}
+  </div>
+</article>
+{{ end }}
+</main>
+</body>
+</html>
