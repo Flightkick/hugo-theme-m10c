@@ -26,7 +26,11 @@
     {{- if ne $key 0 }}
     {{ $.Site.Params.menu_item_separator | default " - " | safeHTML }}
     {{ end }}
-    <a class="app-header-menu-item" href="{{ $item.URL }}">{{ $item.Name }}</a>
+    <a class="app-header-menu-item" href="{{ $item.URL }}"
+       {{- if (hasPrefix $item.URL "http") }}
+    target="_blank" rel="noopener noreferrer"
+    {{end -}}
+    >{{ $item.Name }}</a>
     {{- end }}
   </nav>
   {{- end }}
